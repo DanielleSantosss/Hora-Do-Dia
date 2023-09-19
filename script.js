@@ -2,8 +2,8 @@ function carregar(){
     var mensagem = window.document.getElementById('mensagem')
     var imagem = window.document.getElementById('imagem')
     var data = new Date()
-    var hora = data.getHours()
-    var minutos = data.getMinutes()
+    var hora = data.getHours() <= 9 ? `0${data.getHours()}`: data.getHours()
+    var minutos = data.getMinutes() <= 9 ? `0${data.getMinutes()}`: data.getMinutes()
     
     if (hora >= 0 && hora < 12) {
         mensagem.innerHTML = `Bom dia, agora são ${hora}h${minutos}!`    
@@ -17,6 +17,7 @@ function carregar(){
         mensagem.innerHTML = `Boa noite, agora são ${hora}h${minutos}!`
         imagem.src = 'noite.jpg'
         document.body.style.background = '#000430'
-    }
+    } 
+    setTimeout(carregar, 1000)
 }
-
+   
